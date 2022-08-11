@@ -6,21 +6,122 @@
 </head>
 <body>
 <script>
-    function calculateCircumference(radius) {
-        const pi = 3.14159;
-        let cir = 2*pi*radius;
-        return cir;
+    // function calculateCircumference(radius) {
+    //     const pi = 3.14159;
+    //     let cir = 2*pi*radius;
+    //     return cir;
+    // }
+    // function calculateKilometers(miles){
+    //     return miles*1.609;
+    // }
+    //
+    // function CalculateLiters (gallons) {
+    //     return gallons*3.785;
+    // }
+    // function CalcuateFerinhite(Celsius) {
+    //     return ((Celsius*9)/5) + 32;
+    // }
+
+    function isOdd(number){
+        return Math.abs(number) % 2 === 1;
     }
-    function calculateKilometers(miles){
-        return miles*1.609;
+    //
+    // if (number % 5 === 0 && number % 3 === 0) {
+    //     console.log ("the number is divisable by 5 and 3");
+    // } else {
+    //     console.log("that number is not divisable by 5 and 3");
+    // }
+
+    function divisibleByFiveorThree(number){
+        return number % 5 === 0 || number % 3 === 0;
     }
 
-    function CalculateLiters (gallons) {
-        return gallons*3.785;
+    function divisibleBySevenorThree(number){
+        return number % 7 === 0 || number % 3 === 0;
     }
-    function CalcuateFerinhite(Celsius) {
-        return ((Celsius*9)/5) + 32;
+
+    function divisibleByThreeorTwo(number){
+        return number % 3 === 0 || number % 2 === 0;
     }
+
+    function divisibleByThreeorOdd(number){
+        return number % 3 === 0 || number % 2 !== 0;
+    }
+
+    function notdivisableByThreeofOdd(number){
+        if(number % 3 === 0 || number % 2 !== 0){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    // let myName = "Exabiier";
+    // let myLastName = "Bars";
+    // let myTitle = "Mr. "
+    //
+    // let myMyFullName = myName + " " + myLastName;
+    // console.log(myMyFullName);
+    // myMYFullName = myTitle + myMyFullName;
+    // console.log(myMyFullName)
+
+    // Function FullName(FirstName, MiddleName, LastName){
+    //     let name = "function FullName(FirstName, MiddleName, LastName) { return  Firstname + MiddleName + LastName}".parseFunction();
+    //     console.log(name)
+    // }
+
+    function FullName (firstName, middleName, lastName){
+        return `${firstName} ${middleName} ${lastName}`;
+    }
+
+function  address(houseNuumber, StreetName, city, state, zipCode){
+        return `${houseNumber} ${StreetName} \n ${city}, ${state} ${zipCode}`;
+}
+
+    function tempatureConversion (temp, IsFahrenheit){
+        if (IsFahrenheit === true) {
+            return (temp - 32) * 5 / 9;
+        } else {
+                return (temp * 9/5) + 32;
+            }
+    }
+
+  function upper(string) {
+        return string.toUpperCase()
+
+  }
+
+    function lower(string) {
+        return string.toLowerCase()
+    }
+
+    function trim(string) {
+        return string.trim()
+    }
+
+    function chrlength(string) {
+        return string.length;
+    }
+
+    function indexOfChracter(Char, string){
+        return string.indexOf(char)
+    }
+
+    let numericString = "42";
+
+    let someValue = "42";
+    if (typeof(sameValue) ==="number") {
+        console.log("this is a number");
+    } else console.log(
+    )
+
+
+    function isNumnber(value){
+        return typeof value === "number";
+    }
+
+    function Number (value){
+        return !(isNaN(value) || Typeof value === "boolean");
 
 
 </script>
