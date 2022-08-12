@@ -120,9 +120,28 @@ function  address(houseNuumber, StreetName, city, state, zipCode){
         return typeof value === "number";
     }
 
-    function Number (value){
-        return !(isNaN(value) || Typeof value === "boolean");
+    // function isNumber(value){
+    //     return !(isNaN(value) || Typeof value === "boolean");
+    // }
 
+        // logic chalenge//
+
+    // function Multiply(avalue, bvalue) {
+    //     if !(isNaN(avalue) || Typeof avalue === "boolean" || isNaN(bvalue) || Typeof bvalue === "boolean") {
+    //     return a*b;
+    //       } else{
+    //     console.log("Please Enter Numbers");}
+    //    }
+    // }
+
+    function multiply(value1, value2){
+        if (isNan(parseFloat(value1)) || isNaN(parseFloat(value2))) {
+            return false;
+        } else {
+            return parseFloat(value1) * parseFloat(value2);
+        }
+
+    }
 
 </script>
 </body>
