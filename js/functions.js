@@ -10,7 +10,7 @@
  */
 
 function sayHello(name){
-    return "Hello, " + name;
+    return "Hello, " + name + "!";
 }
 
 /**
@@ -35,7 +35,6 @@ console.log(helloMessage)
  * console.
  */
 let myName = "Exabiier"
-sayHello(myName)
 console.log(sayHello(myName))
 
 //why call function then console.log
@@ -91,7 +90,7 @@ console.log(xw)
 //
 // }
 
-const caculateTip = (tip, bill) => tip*bill
+const caclulateTip = (tip, bill) => tip*bill
 
 
 /**
@@ -101,9 +100,11 @@ const caculateTip = (tip, bill) => tip*bill
  * then display the dollar amount they should tip
  */
  let theTip = prompt("How much do you want to TIP!!!!!!!!")
-    let Moneypaidformeal = prompt("Total for meal?")
+    let moneypaidformeal = prompt("Total for meal?")
 
-alert("Total paid in TIp" + theTip * Moneypaidformeal)
+let totalTip = caclulateTip(theTip/100, moneypaidformeal)
+alert("Total paid in TIp" + totalTip.toFixed(2))
+
 /**
  * TODO:
  * Create a function named `applyDiscount`. This function should accept a price

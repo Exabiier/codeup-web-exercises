@@ -32,15 +32,13 @@
 //     }
 // }
 
-log
-
 // Don't change the next two lines!
 // These lines create two variables for you:
 // - `colors`: a list of the colors of the rainbow
 // - `randomColor`: contains a single random color value from the list (this
 //                  will contain a different color every time the page loads)
-var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
-var randomColor = colors[Math.floor(Math.random() * colors.length)];
+// var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+// var randomColor = colors[Math.floor(Math.random() * colors.length)];
 /**
  * TODO:
  * Pass the `randomColor` variable to your 'analyzeColor' function and console.log the results.
@@ -106,24 +104,7 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * return value.
  */
 
-// function calculateTotal(number, price1) {
-//     if (number == 0){
-//         return price1;
-//     } else if(number == 1){
-//         return price1*(.9);
-//     } else if(number == 2){
-//         return price1*.75;
-//     } else if(number == 3){
-//         return price1*.65;
-//     } else if(number == 4){
-//         return price1*.5;
-//     } else if(number == 5){
-//         return price1*0;
-//     } else {
-//         return "only number between 0-5"
-//     }
-//
-//         }
+// function cacluateTotal(number, price1)
 
 
 /**
@@ -136,10 +117,6 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  */
 // Generate a random number between 0 and 6
 // var luckyNumber = Math.floor(Math.random() * 6);
-//
-// let it = prompt("what is your total bill?")
-// let popUpPrice = calculateTotal(luckyNumber, it);
-// alert("your lucky number is: " + luckyNumber + " and your total number is: $" + popUpPrice + ". Your price Before was: " + it);
 
 /**
  * TODO:
@@ -159,63 +136,27 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
-    function evenOrOdd(number){
-    if (number % 2 === 0) {
-        return "is Even";
-    } else {
-        return "is odd";
-    }
-}
 
-function plus100(number1) {
-    return 100 + parseInt((number1));
-}
+// let i = 11
+//
+//  do {
+//     console.log(' doooooooo while loop iteration #' + i);
+//     i++;
+// } while (i > 10)
 
-function negOrPos(number2){
-        if(number2 < 0){
-            return "is Negative"
-        } else return "positive"
-}
-// // function
-//
-//
-//
-//   function getNumber(){
-//       if(confirm("Do you want to enter a number?")){
-//           retrun prompt("enter a number");
-//       }
+// let a = 0
+// while(a < 10) {
+//     console.log('while loop iteration #' + a);
+//     a++;
 // }
-//
-//     function  analyzeNumber(number){
-//         if (number === "undifined"){
-//             return false;
-//         }
-//         if(parseInt(typeof(x)) === "number" && x!= NaN){
-//             alert(evenOrOdd(x));
-//             alert(plus100(x));
-//             alert(negOrPos(x));
-//         }
-//         else {
-//             alert("Incorrect input data type!");
-//
-//         }
-//     }
 
-    // analyzeNumber(getNumber());
+//why do we use do
 
-let userInput = confirm("Would you like to enter a number?");
-if(userInput){
-    let x = prompt("what number would you like to use?");
-    if(parseInt(typeof(x)) === "number" && x!= NaN){
-         alert(evenOrOdd(x));
-            alert(plus100(x));
-            alert(negOrPos(x));
-        }
-     else {
-        alert("Incorrect input data type!");
+// let i = 0
+// for(;i<20; i++){
+//     console.log("lets gooooo"+i)
+// }
 
-}
-}
+function upperCase(input){
 
-
-
+return typeof input === "string"? input.toUpperCase():false;}
