@@ -1,6 +1,6 @@
 function showMultipleicationTable(input){
     for(let x =1; x<=10; x++){
-        console.log(input*x);
+        console.log(`${input} x ${x} = ${input*x}`);
     }
 }
 
@@ -33,8 +33,30 @@ for(i=100; i>=0; i = i - 5){
 //     console.log(log.response.join(""))
 // }
 
-let n = 9; //height of pattern
-let string = "";
-for(let i; i<=n; i++){
-    for(let j = 1;)
-}
+// let n = 9; //height of pattern i=1+i
+// let string = "";
+// for(let i = 1; i<=n; i++){
+//
+//     for(let j = 1; j<= i; j++) {
+//         string +=i;}
+//     string += "\n"
+//     }
+// console.log(string)
+//
+//
+// for(let i = 1; i<=9; i++){
+//     console.log(i.tosting().repeat(1));}
+// }
+//
+// let string = ""
+// for (let i = 0; i< 8; i++){
+//     let word = prompt("Let's make a sentance! Enter the word: ");
+//     if (word === curses){
+//         console.log("not allowed in my house");
+//         continue;
+//     }
+//     string += "" + word;
+//     console.log("our sentance is: " + string)
+// }
+
+
