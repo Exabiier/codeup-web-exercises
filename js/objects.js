@@ -32,7 +32,7 @@
         firstname: "Rick",
         lastname: "Sanchez",
         sayHello: function (){
-            console.log(`Hello from ${person.firstname} ${person.lastname}`)
+            console.log(`Hello from ${this.firstname} ${this.lastname}`)
         }
 
     }
@@ -66,7 +66,7 @@
 
     shoppers.forEach(function  ( shopper){
         if(shopper.amount > 200){
-            console.log(`${shopper.name}  started with $ ${shopper.amount} and was given a discount of 12% and total cost was $ ${shopper.amount*(1-.12)} `);
+            console.log(`${shopper.name}  started with $${shopper.amount} and was given a discount of ${shopper.amount*.12} and total cost was $ ${shopper.amount*(1-.12)} `);
         } else {
             console.log(`${shopper.name}  final price will be ${shopper.amount} with no dicount.`)
 
@@ -156,4 +156,23 @@
      *   `showBookInfo` function.
      */
 
+    function createBook(title, firstname, lastName){
+        return{
+            title: title,
+            author: {
+                firstname: firstname,
+                lastName: lastName
+
+            }
+        }
+    }
+
+    books.push(createBook("The Great Gatsby", "F. Scott", "Fitzgerald"));
+
 })();
+
+function showBookInfo(book){
+    console.log(`Title: ${book.title}`);
+    console.log(`Author: ${book.author.firstNam} ${book.author.lastName}`);
+    console.log(`---`);
+}

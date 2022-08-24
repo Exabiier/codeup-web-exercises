@@ -138,54 +138,54 @@ let view = {
     }
 }
 
-let model = {
-    fighter: {
-        name: "Arata",
-        hitPoints: 18,
-        maxDamage: 8
-    },
+// let model = {
+//     fighter: {
+//         name: "Arata",
+//         hitPoints: 18,
+//         maxDamage: 8
+//     },
+//
+//     monster: {
+//         name: "Goblin",
+//         hitPoints: 8,
+//         maxDamage: 6
+//     }
+// }
+//
+// // fighter.attack(monster);
+// // fighter["attack"](monster);
+//
+// controller.attack(model.fighter, model.monster);
+// controller.attack(model.monster, model.fighter);
+//
+//
+// //creating a new object
+// //define an empty object and create properties dynamically
+// let goblin = {};
+// goblin.name = "Goblin";
+//
+//
+// function makeMonster(name, hitPoints, maxDamage){
+//     return{
+//         name: name,
+//         hitPoints: hitPoints,
+//         maxDamage: maxDamage
+//     }
+// }
 
-    monster: {
-        name: "Goblin",
-        hitPoints: 8,
-        maxDamage: 6
-    }
-}
-
-// fighter.attack(monster);
-// fighter["attack"](monster);
-
-controller.attack(model.fighter, model.monster);
-controller.attack(model.monster, model.fighter);
-
-
-//creating a new object
-//define an empty object and create properties dynamically
-let goblin = {};
-goblin.name = "Goblin";
-
-
-function makeMonster(name, hitPoints, maxDamage){
-    return{
-        name: name,
-        hitPoints: hitPoints,
-        maxDamage: maxDamage
-    }
-}
-
-model.hobgoblin = makeMonster("Hobgoblin", 11, 11);
-
-
-
-function Monster(name, hitPoints, maxDamage){
-    this.name = name;
-    this.hiPoints = hitPoints;
-    this.maxDamage;
-}
-
-model.hobgoblinCaptain = new Monster("Hobgoblin Captain", 39, 14)
-
-controller.attack(model.hobgoblinCaptain, model.fighter);
+// model.hobgoblin = makeMonster("Hobgoblin", 11, 11);
+//
+//
+//
+// function Monster(name, hitPoints, maxDamage){
+//     this.name = name;
+//     this.hiPoints = hitPoints;
+//     this.maxDamage;
+// }
+//
+// model.hobgoblinCaptain = new Monster("Hobgoblin Captain", 39, 14)
+//
+// controller.attack(model.hobgoblinCaptain, model.fighter);
 
 //what does this all mean.
 // }
@@ -209,10 +209,19 @@ controller.attack(model.hobgoblinCaptain, model.fighter);
 //
 // fighter.attack();
 
+const car = {
+    make: "Toyota",
+    model: "Tacoma",
+    year: 2019,
+    mileage: 12657
+}
+let make = car.make;
+let carmodle = car.model;
 
 
+const {make, model, year, mileage} = car;
 
-
+constoutputCarInfo = ({make, modle, year, mileage} = car) => {console.log(`${year} ${make} ${model} with ${mileage}`)}
 
 
 

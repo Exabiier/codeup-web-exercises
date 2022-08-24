@@ -160,3 +160,10 @@
 function upperCase(input){
 
 return typeof input === "string"? input.toUpperCase():false;}
+
+let fruits = ["apple", "orange", "strawberry", "kiwi", "pineapple"];
+
+fruits.forEach(function(element, index, array){
+    console.log(element)
+})
+
