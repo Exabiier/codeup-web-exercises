@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register with Us!</title>
+</head>
+<body>
+    <form method="POST" action="https://request-inspector.glitch.me/">
+        <div>
+            <label for="username" >Username</label>
+            <input id="username" name="username" type="text" placeholder="Enter your Eamil">
+        </div>
+        <br>
+
+        <div>
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password">
+        </div>
+            <br>
+
+        <div>
+            <textarea id="bio" name="bio" rows="4" cols="40"></textarea>
+        </div>
+
+        <div>
+            <p>How did you hear about us?</p>
+            <input type="radio" id="How1" name="How" value="Billboard">
+            <label for="How1">Billboard</label>
+            <br>
+
+            <input type="radio" id="How2"  name="How" value="Radio advertisement">
+            <label for="How2">Radio advertissemnt</label>
+            <br>
+
+            <input type="radio" id="How3" name="How" value="internet advertisement">
+            <label for="How3">internet advertisement</label>
+            <br>
+        </div>
+             <br>
+
+        <div>
+            <label for="Webquestion">What is your favorite web browser to use?</label>
+                <select id="Webquestion">
+                    <option value="Blank">------</option>
+                    <option value="Google">Google</option>
+                    <option value="Brave">Brave</option>
+                    <option value="Firefox">Firefox</option>
+                    <option value="Internet Explorer">Internet Exploer</option>
+                </select>
+        </div>
+        <br>
+
+        <input type="reset">
+        <input type="submit">
+
+    </form>
+
+</body>
+</html>
+
+<!--the <label> tag use for instead of id is for the  input-->
