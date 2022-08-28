@@ -1,4 +1,32 @@
+@font-face{
+    src: url("/Fonts/Minecraft.ttf");
+    font-family: "Minecraft", cursive;
+    font-style: normal;
+    font-weight: 400;
+}
+
 .fancy-header{
     color: #9f08d5;
     text-decoration: underline;
 }
+
+h1 {
+    text-align: center;
+}
+
+h3 {
+    color: #9fab27;
+    text-decoration: underline;
+}
+
+/*body{*/
+/*    background-color: #819ccb;*/
+/*}*/
+
+body{
+    background-image: url("/img/leon-macapagal-1kZF9ltbRjo-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
