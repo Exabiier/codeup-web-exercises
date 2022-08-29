@@ -1,7 +1,12 @@
 @font-face{
     src: url("/Fonts/Minecraft.ttf");
-    font-family: "Minecraft", cursive;
+    font-family: 'CustomFont';
     font-style: normal;
+    font-weight: 400;
+}
+
+p,h1, h2, h3,ul, ol, tr, td, a {
+    font-family: 'CustomFont', Arial, sans-serif;
     font-weight: 400;
 }
 
@@ -24,9 +29,50 @@ h3 {
 /*}*/
 
 body{
-    background-image: url("/img/leon-macapagal-1kZF9ltbRjo-unsplash.jpg");
+    background-image: url("/img/download.jpeg");
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
+p,h1, h2, h3,ul, ol, tr, td, a{
+    color: #f8f8d1;
+}
+
+ul.a{
+    list-style-type: square;
+}
+
+ol.b{
+    list-style-type: upper-roman;
+}
+
+ul.c{
+    list-style-type: circle;
+}
+
+a:link {
+    color:red;
+}
+
+/* visited link (:visited) */
+a:visited {
+    color:black;
+}
+
+/* mouse hover over link (:hover) */
+a:hover {
+    color:blue;
+}
+
+/* active/selected link (:active) */
+a:active {
+    color:green;
+}
+
+th, td {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 40px;
+}
 
