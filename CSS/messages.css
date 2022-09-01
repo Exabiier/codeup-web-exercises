@@ -1,0 +1,42 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Ubuntu, sans-serif;
+}
+
+.message{
+    padding:30px;
+    padding-block:15px;
+    margin: 20px 500px 20px 20px;
+    border-color: silver;
+    border-radius: 5px;
+    box-shadow: 2px 2px;
+    font-weight: bold;
+}
+
+.message-info {
+    background-color: lightblue;
+    color: blue;
+}
+
+.message-success {
+    background-color: lightgreen;
+    color: green;
+}
+
+.message-warning {
+    background-color: lightyellow;
+    color: yellow;
+}
+
+.message-error {
+    background-color: lightcoral;
+    color: red;
+}
+
+
+
+
+/*the box shadow will always need 2 measurement one for the bottom and right side*/

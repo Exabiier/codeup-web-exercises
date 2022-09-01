@@ -1,5 +1,18 @@
-/*p {*/
-/*    text-transform: Uppercase;*/
-/*}*/
+p {
+    text-transform: Uppercase;
+}
+
+/* the * will select all elements inside an htmal page therefore you can apply all fonts into it.*/
+
+@font-face {
+    src: url("/Fonts/AnekTelugu-VariableFont_wdth,wght.ttf");
+    font-family: 'CustomFont';
+    font-style: normal;
+    font-weight: 400;
+}
+
+*{
+    font-family: 'CustomFont', Arial, sans-serif;
 
 
+}
