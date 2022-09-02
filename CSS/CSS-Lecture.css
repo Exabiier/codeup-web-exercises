@@ -1,29 +1,58 @@
-body {
-    margin: 15px;
-}
+/*body {*/
+/*    margin: 15px;*/
+/*}*/
 
-#main{
-    box-sizing: border-box;
-    width:400px;
-    border: 1px solid black;
-    padding: 15px;
-    box-shadow: 10px 10px 10px darkgreen;
-    margin-top: 50px;
-/*    for the box shadow if you go negative it will go the other direction. the third px is the blur radius, it will */
-}
+/*#main{*/
+/*    box-sizing: border-box;*/
+/*    width:400px;*/
+/*    border: 1px solid black;*/
+/*    padding: 15px;*/
+/*    box-shadow: 10px 10px 10px darkgreen;*/
+/*    margin-top: 50px;*/
+/*!*    for the box shadow if you go negative it will go the other direction. the third px is the blur radius, it will *!*/
+/*}*/
 
-p{
-    box-sizing: border-box;
-    width: 350px;
-    border: 1px solid black;
-    padding: 15px;
-    /*margin: 75px 100px 40px 40px;*/
-    margin: 0 auto;
-/*    auto only goes */
-}
+/*p{*/
+/*    box-sizing: border-box;*/
+/*    width: 350px;*/
+/*    border: 1px solid black;*/
+/*    padding: 15px;*/
+/*    !*margin: 75px 100px 40px 40px;*!*/
+/*    margin: 0 auto;*/
+/*!*    auto only goes *!*/
+/*}*/
 
 /*by default the padding is additive*/
 /*box-sizing will subtract from the content and it will keep a box from expanding. we are squeezing the content area and keeping the box*/
 /*outline: 5px solid crimson;  use another method to get*/
 /*look up */
 /*youtube how to use the box-shadow*/
+
+/*second lession on positioning*/
+
+#ipsum {
+    width: 25%;
+    float: left;
+    border: 1px solid black;
+    padding: 5px;
+    margin: 1rem;
+}
+
+#ipsum, #quenya, #pirate{
+    border: 1px solid black;
+}
+
+footer {
+    width: 20%;
+    margin: auto;
+}
+
+footer p{
+    text-align: center;
+    postion: relitive;
+    left: 5px;
+}
+
+img[src*="fish"]{
+    top: 0
+}

@@ -20,7 +20,7 @@ h2, h3 {
 }
 
 section{
-    padding: 10px;
+
 }
 
 
@@ -30,7 +30,7 @@ section{
     background: green;
     height: 1em;
     width: 2em;
-    justify-content: space-between;
+
 }
 
 .border {border: 2px solid black;}
@@ -45,6 +45,7 @@ section{
 }
 
 section {
+    margin: 10px 0;
     /* enter needed declarations here */
     /*display: flex;*/
     /*justify-content: space-between;*/
@@ -100,6 +101,7 @@ section:nth-of-type(3) h3 {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    margin-right: 80px;
 }
 
 
@@ -113,12 +115,12 @@ section:nth-of-type(3) h3 {
 
 section:nth-of-type(4){
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .large-brown-box {
     height: 5em;
-    width: 5em;
+    width: 10em;
     background: brown;
     /* enter needed declarations here */
     /*justify-content: space-between;*/
@@ -146,7 +148,9 @@ section:nth-of-type(6) {
     height: 14em;
     /* enter needed declarations here */
     display: flex;
-    align-
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
 
 }
 
