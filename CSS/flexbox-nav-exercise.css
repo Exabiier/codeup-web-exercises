@@ -1,0 +1,23 @@
+*{
+    boxing-sizing: border-box;
+}
+
+section {
+    width: 100%;
+    background-color: rgb(193,193,193);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Logo{
+    font-size: 3em;
+    padding: .2em;
+    flex: 0.9;
+    display: flex;
+    justify-content: center;
+
+}
+
+
+/*You can flex on item in the flex box in order for it to take up more space */

@@ -36,6 +36,8 @@ body {
     /* TODO: Add an automatic margin and a flex container to this selector */
     margin: auto;
     display: flex;
+    justify-content: space-between;
+
 /*why did margin make everything so nice */
 }
 
