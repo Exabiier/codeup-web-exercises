@@ -1,5 +1,6 @@
 *{
     boxing-sizing: border-box;
+
 }
 
 section {
@@ -16,8 +17,20 @@ section {
     flex: 0.9;
     display: flex;
     justify-content: center;
+    font-family: 'Montserrat', sans-serif;
 
 }
+
+a {
+    display: inline-block;
+    padding: .2em;
+    font-family: 'Work Sans', sans-serif;
+}
+
+div {
+    font-family: 'Work Sans', sans-serif;
+}
+
 
 
 /*You can flex on item in the flex box in order for it to take up more space */
