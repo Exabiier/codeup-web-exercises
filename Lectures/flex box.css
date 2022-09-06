@@ -1,0 +1,40 @@
+.flexbox{
+    border: 1px solid black;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /*allign-items:*/
+}
+
+.flex-item{
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+}
+
+/*the content in the flex box will determine the size of the width of the boxs*/
+/*flex direction will change the the direction of the main access*/
+/*for rows its right to left, for column its goes top to bottom*/
+/*if there is no limitation on the the hight for colum it will not wrap. if you dont wrap there will be over of the children*/
+/*you can reverse the cross access by bydoing reverse-wrap*/
+/*flex-flow (row,column/wrap)*/
+/*use vh to use it. */
+/*main end and cross end*/
+/*justify content applies to the flex container. difine the distribution of space along the main axis of the container */
+/*space around give half the margins half the size at the end.*/
+/*if there is no fixed hight then the div with the biggest hieght will determine it unless we use align itmes*/
+/*with align items the div will stech to the hieght that is needed*/
+/*align flex end will aign on the them at the end of the box, while flex start goes from the top, while center goes at the center with the hieght. baseline is align of the first test.*/
+/*align items control the alignmetn of flex items alon the cross axis.*/
+/*align- contente isused to control how extra cross axis space is distributed bewteen and around flex lines. it applis only to containers with multiple lines. it applies to the space between the content. */
+/*alingn content is the veritcal  use of justify-cntent. */
+/*flex growth needs to be applied on the individual level*/
+/*align self: can be used in order to change an individual child. */
+/* pooperty can be used in  order to change the order of the children. if they are in the same order path then they will follow the order that is required. */
+
+
+
+
+/**/
