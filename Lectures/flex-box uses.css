@@ -1,0 +1,40 @@
+nav div{
+    display: flex;
+
+}
+
+nav {
+
+    border: 1px solid black;
+    justify-content: flex-end;
+
+}
+
+nav, a{
+    margin: 10px;
+    padding:10px;
+}
+
+a{
+    border: 1px solid black;
+    border-radious: 5px;
+    padding: 10px;
+}
+
+
+
+div{
+    border: 2px solid gold;
+    border-radius: 7px;
+    padding: 20px;
+    height: 150px;
+}
+
+div a{
+    display: inline-block;
+    text-align: center;
+    width: 150px;
+    margin: auto;
+}
+
+
