@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 id="main-header"></h1>
+<button id="btn1"></button>
+<INPUT TYPE="button" VALUE="Back" onClick="history.go(-1);">
+
+<script>
+  let mainHeader = document.getElementById("main-header");
+
+  // let buttonOne = function(event){
+  //   mainHeader.innerText = `Javascript is Cool`;
+  //   buttonTwo();
+  // }
+  //
+  // let buttonTwo = function(event){
+  //   mainHeader.innerText = `Hello world`;
+  // }
+
+
+  let counter = 0
+  let buttonTracker = function(event){
+      counter++;
+      if (counter % 2 ===0){
+          document.querySelector('#main-heading').innerText = "is an event Number"
+      } else{
+          document.querySelector('#main-heading').innerText = "is an event Number"
+      }
+
+  }
+
+
+  document.getElementById('btn1').addEventListener('click', buttonTracker);
+
+
+
+
+</script>
+</body>
+</html>

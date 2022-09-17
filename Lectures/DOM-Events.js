@@ -25,8 +25,26 @@ let thesquare = document.querySelector('.sqaure');
 let theHandler = function x() {
     alert('I am a sqaure')
 }
+thesquare.addEventListener('click',function(event){
+    console.log(e.target.className);
+}
 
-thesquare.onclick = theHandler;
+//e.tagret will allow you to minupulate
+//get computedStyle(e.target
+
+let theButton = document.querySelector("button")
+
+let buttonClick = Function(){
+    document.querySelector('p').innerText = "You CHanged me"}
+
+theButton.onClick= buttonClick;
+document.querySelector('p')
+
+
+
+let formInput = document.getElementById('formInput');
+
+    // {event.target.removeEventListener(event)}
 
 
 
