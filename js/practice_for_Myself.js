@@ -157,13 +157,23 @@
 //     console.log("lets gooooo"+i)
 // }
 
-function upperCase(input){
+// function upperCase(input){
+//
+// return typeof input === "string"? input.toUpperCase():false;}
+//
+// let fruits = ["apple", "orange", "strawberry", "kiwi", "pineapple"];
+//
+// fruits.forEach(function(element, index, array){
+//     console.log(element)
+// })
 
-return typeof input === "string"? input.toUpperCase():false;}
+var arr = [3, 6, 2, 56, 32, 5, 89, 32];
+var largest = arr[0];
 
-let fruits = ["apple", "orange", "strawberry", "kiwi", "pineapple"];
-
-fruits.forEach(function(element, index, array){
-    console.log(element)
-})
+for (var i = 0; i < arr.length; i++) {
+    if (largest < arr[i] ) {
+        largest = arr[i];
+    }
+}
+console.log(Math.max(...arr));
 

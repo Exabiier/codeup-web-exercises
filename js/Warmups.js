@@ -149,4 +149,72 @@ var neighborhood3 ={
 // }
 
 
+const attendence = {
+    miami:32789,
+    buffalo: 45678,
+    partland: 24567
+}
+
+//when you use and object you can use Object.value to get the value of a key value pair, and it creates a new array
+
+
+function Object(){
+    let total = 0;
+    for(const prop in attendence){}
+}
+
+/**
+ * Convert Address to Object
+ * Write a function named convertAddressToObject that accepts a string that contains a street number (as a string) and street name separated by a space characters, and returns an object with properties streetNumber and streetName.
+ *
+ * Examples
+ *
+ * >> convertAddressToObject('8646 Sunny Oaks') ➞ {streetNumber: '8646', streetName: 'Sunny Oaks'}
+ * >> convertAddressToObject('5408 Villa Nueva') ➞ {streetNumber: '5408', streetName: 'Villa Nueva'}
+ **/
+
+
+let address = '8646 Sunny Oaks'
+function convertAddressToObject(address){
+    return {
+        streetNumber: address.substring(0,address.indexOf('')),
+        streetName: address.substring(address.indexOf('')+1),
+
+    }
+}
+
+//with substring (this peramenter start at the string, and this one goes to the end point
+// the substring stops one forward
+//use of substring is very useful
+
+//adressString[0],
+// streetNumber: addressarray[0],
+//     streetName adressArray.slice(1, address.lenght).join('')
+
+
+/**
+ * Count total pets
+ * Write a function named totalPets that accepts an array of objects where each object represents a person, and has a 'pets' property for their owned pets. The function should return the sum of every object's numPets property.
+ *
+ * Examples
+ *
+ * >> totalPets([
+ *       {name: 'Fernando Mendoza', pets: 1},
+ *       {name: 'Douglas Hirsh', pets: 8},
+ *       {name: 'Kenneth Howell', pets: 2}
+ *    ]) ➞ 11
+ */
+
+// function totalPets(arrayOfObjects){
+//     let total = 0;
+//     for (let i =0; i <arrayOfObjects.length; i){
+//         total +=  arrayOfObjects[i].pets
+//     }
+// }
+
+//for the reduce method make sure you use .pets so you can get the value.
+//when going through an object you must use the peramentar zero  for the last
+
+
+
 
