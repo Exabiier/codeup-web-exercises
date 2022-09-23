@@ -1,11 +1,28 @@
 // $('h1').click(function(){
 //     alert('the DOM')
 // })
+//
+// // $('.codeup').css('border', '1px solid red')
+//
+// $('li').css('font-size', '20px')
+//
+// $('h1, p, li').css('background-color', '#FFFF00')
 
-// $('.codeup').css('border', '1px solid red')
+$('h1').on('click',function(){
+    $(this).css('background-color','hotpink')
+})
 
-$('li').css('font-size', '20px')
+$('p').on('dblclick', function(){
+    $(this).css('font-size','18px')
+})
 
-$('h1, p, li').css('background-color', '#FFFF00')
+$('li').hover( function(){
+    $(this).css("color", "yellow")},
+    function(){
+    $(this).css("color", "black");
+    });
+
+//how to use the new way of hover.
+//how do you do thekonami code exercise
 
 
