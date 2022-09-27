@@ -167,13 +167,72 @@
 //     console.log(element)
 // })
 
-var arr = [3, 6, 2, 56, 32, 5, 89, 32];
-var largest = arr[0];
+// var arr = [3, 6, 2, 56, 32, 5, 89, 32];
+// var largest = [];
+//
+// for (var i = 0; i < arr.length; i++) {
+//     if (largest < arr[i] ) {
+//         largest = arr[i];
+//     }
+// }
+// console.log(largest)
+// // console.log(Math.max(...arr));
+//
+// const student = [
+//     {
+//         id: 1,
+//         name: "Jacek",
+//         notes: [5, 3, 4, 2, 5, 5]
+//     },
+//     {
+//         id: 2,
+//         name: "Ewa",
+//         notes: [2, 3, 3, 3, 2, 5]
+//     },
+//     {
+//         id: 3,
+//         name: "Zygmunt",
+//         notes: [2, 2, 4, 4, 3, 3]
+//     }
+// ]
+//
+// function fetStudentTopNote(array){
+//     const topNotes = [];
+//     array.foreach(studentObj => {
+//         TopNotes.push(Math.max(...studentObj))
+//     })
+//     return coltopNotes
+// }
 
-for (var i = 0; i < arr.length; i++) {
-    if (largest < arr[i] ) {
-        largest = arr[i];
-    }
+/**
+ * Find the Smallest and Biggest Numbers
+ * Create a function named minMax that takes an array of numbers and return both the minimum and maximum numbers, in that order.
+ *
+ * Examples
+ * >> minMax([1, 2, 3, 4, 5]) ➞ [1, 5]
+ * >> minMax([2334454, 5]) ➞ [5, 2334454]
+ * >> minMax([1]) ➞ [1, 1]
+ *
+ *
+ *
+ **/
+let y = [1, 2, 3, 4, 5]
+
+function minMax(array){
+    let x = [Math.min(...array),Math.max(...array)]
+    return x;
 }
-console.log(Math.max(...arr));
+
+
+
+
+
+
+
+
+
+
+
+
+
 
