@@ -3,9 +3,107 @@
     text-transform: capitalize;
 }
 
+.coordinates {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    position: absolute;
+    bottom: 40px;
+    left: 10px;
+    padding: 5px 10px;
+    margin: 0;
+    font-size: 11px;
+    line-height: 18px;
+    border-radius: 3px;
+    display: none;
+}
+
+
+
 hr{
     width: 100%;
 }
 img{
     object-fit: cover;
 }
+
+.x-font-of-nav{
+    color: white;
+}
+
+.x-nav-2-color{
+    background-color: rgb(80,121,155);
+}
+
+
+.x-nav-3-color{
+    background-color: rgb(22,53,78);
+}
+
+.x-forcast-color{
+    background-color: rgb(62, 115, 157);
+}
+
+.x-white-links{
+    color: white;
+}
+
+.x-dark-blue{
+    background-color: #0e5580 !important;
+}
+
+.x-light-blue{
+    background-color: #388697 !important;
+}
+
+.x-bright-blue{
+    background-color: #B5FFE1 !important;
+}
+
+.x-darkred-red{
+    background-color: #CC2936;
+}
+
+x-city{
+    ;
+}
+
+html{
+
+}
+
+
+body{
+    background: url('/img/light-blue-color-transition-background-.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    /*overflow: hidden;*/
+    /*background-image: url("/img/flow-blue.jpeg");*/
+    /*background-color: #08415C;*/
+    color: #08415C;
+    /*-webkit-text-stroke: .005rem #ffffff;*/
+    /*text-shadow:*/
+    /*        -1px -1px 0 #000,*/
+    /*        0 -1px 0 #000,*/
+    /*        1px -1px 0 #000,*/
+    /*        1px 0 0 #000,*/
+    /*        1px 1px 0 #000,*/
+    /*        0 1 px 0 #000,*/
+    /*        -1px 1px 0 #000,*/
+    /*        -1px 0 0 #000;*/
+
+
+}
+
+
+/*
+#08415C first nav and footer
+#CC2936 background
+#EBBAB9 font color
+#388697 second nav background of card
+#B5FFE1 third
+
+
+
+
+
+
+*/

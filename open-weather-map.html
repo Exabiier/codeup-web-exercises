@@ -25,80 +25,103 @@
 
 </head>
 <body>
+<section class="x-font-of-nav">
 <!-- Top Nav Bar-->
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="x-dark-blue navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a class="navbar-brand" href="#">Hidden brand</a>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled">Disabled</a>
-                </li>
-            </ul>
-            <form class="d-flex" role="search">
+        <div class="collapse navbar-collapse d-flex row-column" id="navbarTogglerDemo01">
+<!--            put the image icon in there-->
+            <a class="col-1" href="#">Hidden brand</a>
+
+            <a class="col-1" aria-current="page" href="#">Home</a>
+
+            <form class="d-flex col" role="search">
                 <input id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button id="searchButton" class="btn btn-outline-success" type="submit">Search</button>
             </form>
+            <div class="col-1">
+               adfdasfs
+            </div>
+            <div class="col-1">
+                adfdasfs
+            </div>
+            <div class="col-1">
+                adfdasfs
+            </div>
+
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item d-flex row-column">
+
+
+                </li>
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="#">Link</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link disabled">Disabled</a>-->
+<!--                </li>-->
+            </ul>
+
         </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
     </div>
 </nav>
 
-<h5 id="current-city"> Current city</h5>
+
 
 <!--middel nav bar -->
 
-<ul class="nav">
-    <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Active</a>
+<ul class="nav x-nav-2-color x-city">
+    <li class="nav-item d-flex justify-content-start align-items-center mx-auto">
+        <p class="my-2 lead"  id="current-city"> Current city</p>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link disabled">Disabled</a>
-    </li>
+
 </ul>
 
 <!--bottom nav bar-->
-<ul class="nav">
+<ul class="nav d- x-nav-3-color d-flex justify-content-around align-items-center">
     <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Active</a>
+        <a class="nav-link x-white-links active" aria-current="page" href="#">Today</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link x-white-links" aria-current="page" href="#">Hourly</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link x-white-links" aria-current="page" href="#">5 Day</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link disabled">Disabled</a>
+        <a class="nav-link x-white-links" aria-current="page" href="#">Weekend</a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link x-white-links" aria-current="page" href="#">Radar</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link x-white-links" aria-current="page" href="#">Video</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link x-white-links" aria-current="page" href="#">Hurricane Ian</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link x-white-links" aria-current="page" href="#">World Forecast</a>
+    </li>
+
 </ul>
-\
+</section>
+
 <!--Container for both the 5 day and map -->
 <div class="container text-center">
 
     <!--This is for all the weather data-->
     <section class="row">
 
-        <section class="col-7">
+        <section class="col-6">
             1 of 2
 
-            <div  class="card">
-                <div class="card-header">
-                    <h3> 5 Day Weather Forcast - <span class="lead">City</span></h3>
+            <div  class="card ">
+                <div class="card-header x-white-links x-forcast-color">
+                    <h3> 5 Day Weather Forcast</h3>
                 </div>
 
                 <!---->
@@ -189,9 +212,10 @@
 
 
 
-            <section class=" col-5">
+            <section class=" col-6">
                 2 of 2
                 <div id="x-mapBox"></div>
+                <pre id="coordinates" class="coordinates"></pre>
             </section>
 
         </section>
@@ -222,6 +246,26 @@
         projection: 'globe' // display the map as a 3D globe
     });
 
+    const marker = new mapboxgl.Marker({
+        draggable: true
+    })
+        .setLngLat([-99.48962, 29.42692])
+        .addTo(map);
+
+    function onDragEnd() {
+        const lngLat = marker.getLngLat();
+        coordinates.style.display = 'block';
+        coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
+        // created coords so we can call it on updateWeather
+        let coords = [
+            `${lngLat.lng}`,
+            `${lngLat.lat}`
+        ]
+        updateWeather(coords)
+
+    }
+    marker.on('dragend', onDragEnd);
+    map.setCenter([-99.48962, 29.42692]);
 
     // map.on('load', function(){
     //     map.addSource(
@@ -262,6 +306,14 @@
 
 How do you change the corrdinates so then you you can change the wether information in your cards and on the map
 
-WeatherBars. Meet your weather neeed!
+WeatherTHeStorm.com. Meet your weather neeed!
 
 One green square a day, keeps the unemployment away!
+
+for mobile put map on top and put moon on bottom also humidity on bottom
+
+make a simple footer
+
+ask javier about dragging the icon
+and th the updated marker
+

@@ -71,6 +71,7 @@ $.get("http://api.openweathermap.org/data/2.5/forecast", {
     $("#current-city").text(`Current City: ${datafor.city.name}`);
     const userMarker = new mapboxgl.Marker().setLngLat([-98.48527,29.423017]).addTo(map);
     map.setCenter([-98.48527,29.423017]);
+    console.log(datafor);
 
     $.get("http://api.openweathermap.org/data/2.5/weather", {
         APPID: OPEN_WEATHER_APPID,
@@ -143,53 +144,56 @@ $.get("http://api.openweathermap.org/data/2.5/forecast", {
 
             function skycCndition(sky){
                 if(sky === 'clear sky'){
-                    sky = '<img > ';
+                    sky = '<img class="" src="img/Weather/sun.png" alt="Sunny">';
                 } else if(sky === 'few clouds') {
-
+                    sky = '<img class="" src="img/Weather/cloudy.png" alt="few clouds">';
                 }
                 else if(sky === 'scattered clouds') {
-
+                    sky = '<img class="" src="img/Weather/cloud.png" alt="scattered clouds">';
                 }
                 else if(sky === 'broken clouds') {
-
+                    sky = '<img class="" src="img/Weather/cloud.png" alt="broken clouds">';
                 }
                 else if(sky === 'shower rain') {
-
+                    sky = '<img class="" src="img/Weather/rain(1).png" alt="shower rain">';
                 }
                 else if(sky === 'rain') {
-
+                    sky = '<img class="" src="img/Weather/rain.png" alt="rain">';
                 }
                 else if(sky === 'thunderstorm') {
-
+                    sky = '<img class="" src="img/Weather/storm.png" alt="thunderstorm">';
                 }
                 else if(sky === 'snow') {
-
+                    sky = '<img class="" src="img/Weather/snowflake.png" alt="snow">';
                 }
                 else if(sky === 'mist') {
-
+                    sky = '<img class="" src="img/Weather/wind.png" alt="mist">';
+                } else {
+                    sky = '<img class="" src="img/Weather/sun.png" alt="Sunny">';
                 }
+                return sky;
             }
 
             $('#append').append(
-                `<h5 class=" text-left">${namedDayFromDay(time)}</h5>
+                `<h4 class=" text-left">${namedDayFromDay(time)}</h4>
                  <div class="row">
-                    <div class="col">
+                    <div class="col-7">
                         <section class="row">
-                            <div class="d-flex justify-content-center align-items-center col-6">
+                            <div class="d-flex justify-content-end align-items-center col-6">
                                 <h2>${highestTemp}&deg</h2>
                             </div>
-                            <div class="d-flex justify-content-center ps-0 col-6">
-                               <img class="" src="img/sun.png" alt="Night Time Weather"> 
+                            <div class="d-flex justify-content-start align-items-center ps-0 col-6">
+                               ${skycCndition(conSky)}
                             </div>
                         </section>
                     </div>
-                    <div class="col">
+                    <div class="col-5">
                         <section class="row">
                             <div class="d-flex align-items-center col-6">
                                <h2>${tempMin}&deg</h2>
                             </div>
-                            <div class=" d-flex justify-content-start ps-0 col-6">
-                                <img class="" src="img/1530383_weather_clouds_cloudy_moon_icon.png" alt="Night Time Weather">
+                            <div class=" d-flex justify-content-start align-items-center  col-6">
+                                <img class="" src="img/Weather/moon.png" alt="Night">
                             </div>
 
                         </section>
@@ -203,21 +207,21 @@ $.get("http://api.openweathermap.org/data/2.5/forecast", {
 
             <!--                        extra information-->
             <section class="otherInformation">
-                <div class="card mb-0">
+                <div class="card mb-0 ">
                     <div class="card-body">
                         <section class="row">
-                            <div class="col-2">
-                            <img class="" src="img/temperature.png" alt="Night Time Weather">
+                            <div class="d-flex justify-content-end col-3">
+                            <img class="" src="img/temperature.png" alt="Tempature reading">
                             </div>
-                            <div class="d-flex align-items-center col-4 row row-col">
-                               <p class="pt-2 mb-0">Feels Like:</p> 
+                            <div class="ps-0  d-flex justify-content-start align-items-center col-3 row row-col">
+                               <p class="pt-2  mb-0">Feels Like:</p> 
                                <br>
                                <p>${highestFeels}&deg</p>
                             </div>
-                            <div class="pe-0 col-2">
+                            <div class="d-flex justify-content-end  col-3">
                             <img class="pe-0" src="img/2682807_drop_high_humidity_percentage_precipitation_icon.png" alt="Humidity water drop">
                             </div>
-                            <div class="d-flex align-items-center col-4 row row-col">
+                            <div class="d-flex justify-content-start align-items-center col-3 row row-col">
                                <p class="pt-2 m-0">Humidity:</p> 
                                <p>${highHum}%</p>
                             </div>
@@ -247,7 +251,7 @@ $.get("http://api.openweathermap.org/data/2.5/forecast", {
 
     });
     });
-
+// userMarker.on('dragend', onDragEnd);
 
 
 function updateWeather(coordinates){
@@ -422,4 +426,12 @@ $('#searchButton').on('click', function(e){
 // use if statement so then you can put your own icons into the box based on condition
 
 //put the weather in map.
+
+//we need to include
+
+//we need to turn of auto complete
+
+//make aimated search bar
+
+//check if all of the weather that comes up.
 
