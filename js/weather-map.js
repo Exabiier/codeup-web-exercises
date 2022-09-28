@@ -141,26 +141,55 @@ $.get("http://api.openweathermap.org/data/2.5/forecast", {
             console.log(time);
 
 
+            function skycCndition(sky){
+                if(sky === 'clear sky'){
+                    sky = '<img > ';
+                } else if(sky === 'few clouds') {
+
+                }
+                else if(sky === 'scattered clouds') {
+
+                }
+                else if(sky === 'broken clouds') {
+
+                }
+                else if(sky === 'shower rain') {
+
+                }
+                else if(sky === 'rain') {
+
+                }
+                else if(sky === 'thunderstorm') {
+
+                }
+                else if(sky === 'snow') {
+
+                }
+                else if(sky === 'mist') {
+
+                }
+            }
+
             $('#append').append(
-                `<h5 classname=" text-left">${namedDayFromDay(time)}</h5>
+                `<h5 class=" text-left">${namedDayFromDay(time)}</h5>
                  <div class="row">
                     <div class="col">
                         <section class="row">
-                            <div class="col-6">
+                            <div class="d-flex justify-content-center align-items-center col-6">
                                 <h2>${highestTemp}&deg</h2>
                             </div>
-                            <div class="col-6">
-                                sfadfasdfasfdsafdsfasdfsdfasd
+                            <div class="d-flex justify-content-center ps-0 col-6">
+                               <img class="" src="img/sun.png" alt="Night Time Weather"> 
                             </div>
                         </section>
                     </div>
                     <div class="col">
                         <section class="row">
-                            <div class="col-6">
+                            <div class="d-flex align-items-center col-6">
                                <h2>${tempMin}&deg</h2>
                             </div>
-                            <div class="col-6">
-                                sfadfasdfasfdsafdsfasdfsdfasd
+                            <div class=" d-flex justify-content-start ps-0 col-6">
+                                <img class="" src="img/1530383_weather_clouds_cloudy_moon_icon.png" alt="Night Time Weather">
                             </div>
 
                         </section>
@@ -177,14 +206,19 @@ $.get("http://api.openweathermap.org/data/2.5/forecast", {
                 <div class="card mb-0">
                     <div class="card-body">
                         <section class="row">
-                            <div class="col-2">icon</div>
-                            <div class="col-4">
-                               <p class=" m-0">FeelsLike:</p> 
+                            <div class="col-2">
+                            <img class="" src="img/temperature.png" alt="Night Time Weather">
+                            </div>
+                            <div class="d-flex align-items-center col-4 row row-col">
+                               <p class="pt-2 mb-0">Feels Like:</p> 
+                               <br>
                                <p>${highestFeels}&deg</p>
                             </div>
-                            <div class="col-2">icon</div>
-                            <div class="col-4">
-                               <p class=" m-0">Humidity:</p> 
+                            <div class="pe-0 col-2">
+                            <img class="pe-0" src="img/2682807_drop_high_humidity_percentage_precipitation_icon.png" alt="Humidity water drop">
+                            </div>
+                            <div class="d-flex align-items-center col-4 row row-col">
+                               <p class="pt-2 m-0">Humidity:</p> 
                                <p>${highHum}%</p>
                             </div>
                         </section>
@@ -311,7 +345,7 @@ function printWeather(datafor) {
                                <h2>${tempMin}&deg</h2>
                             </div>
                             <div class="col-6">
-                                sfadfasdfasfdsafdsfasdfsdfasd
+                                
                             </div>
 
                         </section>

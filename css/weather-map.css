@@ -1,3 +1,11 @@
+
+.cap{
+    text-transform: capitalize;
+}
+
 hr{
     width: 100%;
+}
+img{
+    object-fit: cover;
 }
