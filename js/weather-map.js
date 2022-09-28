@@ -68,8 +68,9 @@ $.get("http://api.openweathermap.org/data/2.5/forecast", {
     lon:   -98.48527,
     units: "imperial"
 }).done(function(datafor) {
-    console.log(datafor);
-
+    $("#current-city").text(`Current City: ${datafor.city.name}`);
+    const userMarker = new mapboxgl.Marker().setLngLat([-98.48527,29.423017]).addTo(map);
+    map.setCenter([-98.48527,29.423017]);
 
     $.get("http://api.openweathermap.org/data/2.5/weather", {
         APPID: OPEN_WEATHER_APPID,
@@ -77,9 +78,9 @@ $.get("http://api.openweathermap.org/data/2.5/forecast", {
         lon:   -98.48527,
         units: "imperial"
     }).done(function(data) {
-        $('.currentWeather').append(`<div><h2> ${namedDayFromDay(datafor.list[0].dt-20000)} </h2>  <p>Tempature: ${datafor.list[0].main.temp}&deg</p>  <p> ${datafor.list[0].weather[0].description}</p> <p>${datafor.list[0].wind.speed} mph ${windCardinalDirection(datafor.list[0].wind.deg)} </p>
-
-    <p>Huminidty: ${datafor.list[0].main.humidity}% </p></div>`)
+    //     $('.currentWeather').append(`<div><h2> ${namedDayFromDay(datafor.list[0].dt-20000)} </h2>  <p>Tempature: ${datafor.list[0].main.temp}&deg</p>  <p> ${datafor.list[0].weather[0].description}</p> <p>${datafor.list[0].wind.speed} mph ${windCardinalDirection(datafor.list[0].wind.deg)} </p>
+    //
+    // <p>Huminidty: ${datafor.list[0].main.humidity}% </p></div>`)
 
         //tempature
         let highestTemp = '';
@@ -112,7 +113,7 @@ $.get("http://api.openweathermap.org/data/2.5/forecast", {
 
 
         // total amount of stuff.
-        for (let i = 1; i < 5; i++) {
+        for (let i = 0; i < 5; i++) {
 
             for(let j = i*8; j <(i+1)*8; j++){
             tempA.push(datafor.list[j].main.temp);
@@ -140,10 +141,70 @@ $.get("http://api.openweathermap.org/data/2.5/forecast", {
             console.log(time);
 
 
-            $('.nextdays').append(`<div class="day${i}">
-            <h2> ${namedDayFromDay(time)} </h2>  <p>HighTemp: ${highestTemp}&deg  LowestTemp: ${tempMin}&deg FeelsLike: ${highestFeels}&deg </p>  <p> ${conSky}</p> <p> Wind-Speed: ${highWind} mph ${windCardinalDirection(windDegree)} </p>
-            <p>Huminidty: ${highHum}% </p>
-            </div>`)
+            $('#append').append(
+                `<h5 classname=" text-left">${namedDayFromDay(time)}</h5>
+                 <div class="row">
+                    <div class="col">
+                        <section class="row">
+                            <div class="col-6">
+                                <h2>${highestTemp}&deg</h2>
+                            </div>
+                            <div class="col-6">
+                                sfadfasdfasfdsafdsfasdfsdfasd
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col">
+                        <section class="row">
+                            <div class="col-6">
+                               <h2>${tempMin}&deg</h2>
+                            </div>
+                            <div class="col-6">
+                                sfadfasdfasfdsafdsfasdfsdfasd
+                            </div>
+
+                        </section>
+                    </div>
+                </div>
+
+            <!-- this will be wind information-->
+            <section class="windInformation mb-2">
+                <p class="lead"><span class="cap">${conSky}.</span> High near ${highestTemp}&deg. Winds ${windCardinalDirection(windDegree)} at ${highWind} mph.</p>
+            </section>
+
+            <!--                        extra information-->
+            <section class="otherInformation">
+                <div class="card mb-0">
+                    <div class="card-body">
+                        <section class="row">
+                            <div class="col-2">icon</div>
+                            <div class="col-4">
+                               <p class=" m-0">FeelsLike:</p> 
+                               <p>${highestFeels}&deg</p>
+                            </div>
+                            <div class="col-2">icon</div>
+                            <div class="col-4">
+                               <p class=" m-0">Humidity:</p> 
+                               <p>${highHum}%</p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <hr>
+                
+            `)
+
+
+
+
+
+
+
+            // $('.nextdays').append(`<div class="day${i}">
+            // <h2> ${namedDayFromDay(time)} </h2>  <p>HighTemp: ${highestTemp}&deg  LowestTemp: ${tempMin}&deg FeelsLike: ${highestFeels}&deg </p>  <p> ${conSky}</p> <p> Wind-Speed: ${highWind} mph ${windCardinalDirection(windDegree)} </p>
+            // <p>Huminidty: ${highHum}% </p>
+            // </div>`)
 
     }
 
@@ -155,6 +216,162 @@ $.get("http://api.openweathermap.org/data/2.5/forecast", {
 
 
 
+function updateWeather(coordinates){
+    $.get("http://api.openweathermap.org/data/2.5/forecast", {
+        APPID: OPEN_WEATHER_APPID,
+        lat:    coordinates[1],
+        lon:    coordinates[0],
+        units: "imperial"
+    }).done(function (data){
+        $("#current-city").text(`Current City: ${data.city.name}`);
+
+        printWeather(data);
+
+    })
+}
+
+function printWeather(datafor) {
+    $('#append').empty();
+
+    //tempature
+    let highestTemp = '';
+    let tempA = [];
+
+    let tempMin = '';
+    let tempM = [];
+
+    let highestFeels = '';
+    let feelT = [];
+
+
+    //wind speed
+    highWind = '';
+    let windA=[];
+    let windDegree = '';
+
+    //huminitdy
+    highHum = ''
+    let humA = [];
+
+    //sky conditions
+    let skyA = [];
+    let conSky = '';
+
+    //Date
+    let time = '';
+
+
+
+
+    // total amount of stuff.
+    for (let i = 0; i < 5; i++) {
+
+        for(let j = i*8; j <(i+1)*8; j++){
+            tempA.push(datafor.list[j].main.temp);
+            tempM.push(datafor.list[j].main.temp_min)
+            feelT.push(datafor.list[j].main.feels_like)
+            windA.push(datafor.list[j].wind.speed);
+            humA.push(datafor.list[j].main.humidity);
+            if(j % 8 === 0 ){
+                conSky = datafor.list[j].weather[0].description;
+                time = ((datafor.list[j].dt)-4000);
+                windDegree = datafor.list[j].wind.deg;
+
+            }
+
+        }
+        //the Max tempature, wind-speed
+        highestFeels = Math.max(...feelT)
+        highestTemp = Math.max(...tempA)
+        highWind = Math.max(...windA)
+        highHum = Math.max(...humA)
+
+        //Min tempature
+        tempMin = Math.min(...tempM)
+
+        console.log(time);
+
+
+        $('#append').append(
+            `<h5 classname=" text-left">${namedDayFromDay(time)}</h5>
+                 <div class="row">
+                    <div class="col">
+                        <section class="row">
+                            <div class="col-6">
+                                <h2>${highestTemp}&deg</h2>
+                            </div>
+                            <div class="col-6">
+                                sfadfasdfasfdsafdsfasdfsdfasd
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col">
+                        <section class="row">
+                            <div class="col-6">
+                               <h2>${tempMin}&deg</h2>
+                            </div>
+                            <div class="col-6">
+                                sfadfasdfasfdsafdsfasdfsdfasd
+                            </div>
+
+                        </section>
+                    </div>
+                </div>
+
+            <!-- this will be wind information-->
+            <section class="windInformation mb-2">
+                <p class="lead"><span class="cap">${conSky}.</span> High near ${highestTemp}&deg. Winds ${windCardinalDirection(windDegree)} at ${highWind} mph.</p>
+            </section>
+
+            <!--                        extra information-->
+            <section class="otherInformation">
+                <div class="card mb-0">
+                    <div class="card-body">
+                        <section class="row">
+                            <div class="col-2">icon</div>
+                            <div class="col-4">
+                               <p class=" m-0">FeelsLike:</p> 
+                               <p>${highestFeels}&deg</p>
+                            </div>
+                            <div class="col-2">icon</div>
+                            <div class="col-4">
+                               <p class=" m-0">Humidity:</p> 
+                               <p>${highHum}%</p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <hr>
+                
+            `)
+
+
+
+
+
+
+
+        // $('.nextdays').append(`<div class="day${i}">
+        // <h2> ${namedDayFromDay(time)} </h2>  <p>HighTemp: ${highestTemp}&deg  LowestTemp: ${tempMin}&deg FeelsLike: ${highestFeels}&deg </p>  <p> ${conSky}</p> <p> Wind-Speed: ${highWind} mph ${windCardinalDirection(windDegree)} </p>
+        // <p>Huminidty: ${highHum}% </p>
+        // </div>`)
+
+    }
+
+
+}
+
+$('#searchButton').on('click', function(e){
+    e.preventDefault();
+    const address = $('#search').val();
+    geocode(address, MAPBOX_API_TOKEN).then(function (coordinates) {
+        console.log(coordinates);
+        const userMarker = new mapboxgl.Marker().setLngLat(coordinates).addTo(map);
+        map.setCenter(coordinates);
+        updateWeather(coordinates);
+    });
+})
 
 //    ideas:
 // what i will do for all the forcast is that is that i will do a lot of if elses so then i can get the exact data on the certian time.
@@ -166,4 +383,9 @@ $.get("http://api.openweathermap.org/data/2.5/forecast", {
 //need the highs and lows
 //make a for loop for the certian days and find the Math.max of the data
 
+//how to append
+
+// use if statement so then you can put your own icons into the box based on condition
+
+//put the weather in map.
 

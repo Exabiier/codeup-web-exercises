@@ -165,9 +165,9 @@ function cityStateObject(cityAndstate){
 
 function analyzeString(string){
     return {
-        Length: string.length;
+        Length: string.length,
         firstLetter: string.charAt().toLowerCase(),
-        lastLetter: sting.charAt(string.length - 1).toLowerCase()
+        lastLetter: string.charAt(string.length - 1).toLowerCase()
     }
 
 }

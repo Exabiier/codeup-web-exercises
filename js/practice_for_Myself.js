@@ -223,6 +223,30 @@ function minMax(array){
     return x;
 }
 
+/** Write a function that accepts a string,
+ breaks down the string into components,
+ and returns an object where each component of the string has become the value of a property */
+// keywords "breaks down the string into components" make it not into a string.
+// property = value                               black rifle coffee
+// .split(" ") makes it into an array.           property first word = black
+// var pistol = {};    {} = objects
+// pistol.brand = "glock"; make = key
+// car.model = "Camry";
+
+function returnsObjectOfWords (string) {
+    let array = string.split (" ")
+    let obj = {}
+    for ( let i = 0; i < array.length; i++) {
+        let property = "word" + (i+1);
+        obj.property = array[i]
+    }
+    return obj;
+}
+// object.key = value
+// object = glock : key = scaliber : value : 9mm
+// obj = object : foo = key : bar = value
+// const obj = { foo: 'bar', baz: 42 };
+
 
 
 
