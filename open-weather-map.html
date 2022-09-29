@@ -33,7 +33,7 @@
 <!--            put the image icon in there-->
             <a class="col-1" href="#">Hidden brand</a>
 
-            <a class="col-1" aria-current="page" href="#">Home</a>
+            <a class="col-2" aria-current="page" href="#">Home</a>
 
             <form class="d-flex col" role="search">
                 <input id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -45,9 +45,7 @@
             <div class="col-1">
                 adfdasfs
             </div>
-            <div class="col-1">
-                adfdasfs
-            </div>
+
 
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item d-flex row-column">
@@ -215,7 +213,6 @@
             <section class=" col-6">
                 2 of 2
                 <div id="x-mapBox"></div>
-                <pre id="coordinates" class="coordinates"></pre>
             </section>
 
         </section>
@@ -239,6 +236,7 @@
 <script>
     mapboxgl.accessToken = MAPBOX_API_TOKEN;
     const map = new mapboxgl.Map({
+        draggable: true,
         container: 'x-mapBox', // container ID
         style: 'mapbox://styles/mapbox/outdoors-v11', // style URL
         center: [-98.48527, 29.423017], // starting position [lng, lat]
@@ -246,26 +244,6 @@
         projection: 'globe' // display the map as a 3D globe
     });
 
-    const marker = new mapboxgl.Marker({
-        draggable: true
-    })
-        .setLngLat([-99.48962, 29.42692])
-        .addTo(map);
-
-    function onDragEnd() {
-        const lngLat = marker.getLngLat();
-        coordinates.style.display = 'block';
-        coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
-        // created coords so we can call it on updateWeather
-        let coords = [
-            `${lngLat.lng}`,
-            `${lngLat.lat}`
-        ]
-        updateWeather(coords)
-
-    }
-    marker.on('dragend', onDragEnd);
-    map.setCenter([-99.48962, 29.42692]);
 
     // map.on('load', function(){
     //     map.addSource(
