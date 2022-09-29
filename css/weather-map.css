@@ -19,6 +19,7 @@
 
 
 
+
 hr{
     width: 100%;
 }
@@ -71,6 +72,9 @@ html{
 
 }
 
+.x-brand{
+    object-fit: none;
+}
 
 body{
     background: url('/img/light-blue-color-transition-background-.jpeg') no-repeat center center fixed;
@@ -91,6 +95,72 @@ body{
     /*        -1px 0 0 #000;*/
 
 
+}
+
+
+
+/*search bar CSS*/
+
+
+.search {
+    width: 100%;
+    position: relative;
+    display: flex;
+}
+
+/*for search bar*/
+.search {
+    width: 100%;
+    position: relative;
+    display: flex;
+}
+
+.searchTerm::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    text-align: center;
+    opacity: 1; /* Firefox */
+}
+
+.search-div{
+    width: 100%;
+}
+
+.searchTerm {
+    width: 60%;
+    background-color: rgb(80,121,155);
+    border: 3px solid rgb(80,121,155);
+    border-right: none;
+    padding: 5px;
+    height: 36px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.searchTerm:focus{
+    color: rgb(80,121,155);
+}
+
+.searchButton {
+    width: 40px;
+    height: 36px;
+    border: 1px solid rgb(80,121,155);
+    background: rgb(80,121,155);
+    text-align: center;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+    width: 30%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 
