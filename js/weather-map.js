@@ -1,20 +1,161 @@
 
 
-// //function for Conversion of date
-// const months = ["JAN", "FEB", "MAR","APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
-//
-// function formatTime(timeStamp){
-//     let dateTime = new Date(timeStamp * 1000);
-//     let year = dateTime.getFullYear();
-//     let month = months[dateTime.getMonth()];
-//     let day = dateTime.getDate();
-//     let hour = appendLeadingZeroes(dateTime.getHours());
-//     let minutes = appendLeadingZeroes(dateTime.getMinutes());
-//     let seconds = appendLeadingZeroes(dateTime.getSeconds());
-//     let formattedDateTime = month + " " + day + " " + year + " " + hour + ":" + minutes + ":" + seconds;
-//     return formattedDateTime;
-// }
+//the function that updates the weather
+function printWeather(datafor) {
+    $('#append').empty();
 
+        //tempature
+        let highestTemp = '';
+        let tempA = [];
+
+        let tempMin = '';
+        let tempM = [];
+
+        let highestFeels = '';
+        let feelT = [];
+
+
+        //wind speed
+        highWind = '';
+        let windA=[];
+        let windDegree = '';
+
+        //huminitdy
+        highHum = ''
+        let humA = [];
+
+        //sky conditions
+        let skyA = [];
+        let conSky = '';
+
+        //Date
+        let time = '';
+
+
+
+
+        // How we gathered our date
+        for (let i = 0; i < 5; i++) {
+
+            for(let j = i*8; j <(i+1)*8; j++){
+                tempA.push(datafor.list[j].main.temp);
+                tempM.push(datafor.list[j].main.temp_min)
+                feelT.push(datafor.list[j].main.feels_like)
+                windA.push(datafor.list[j].wind.speed);
+                humA.push(datafor.list[j].main.humidity);
+                if(j % 8 === 0 ){
+                    conSky = datafor.list[j].weather[0].description;
+                    time = ((datafor.list[j].dt)-4000);
+                    windDegree = datafor.list[j].wind.deg;
+
+                }
+
+            }
+            //the Max tempature, wind-speed
+            highestFeels = Math.max(...feelT)
+            highestTemp = Math.max(...tempA)
+            highWind = Math.max(...windA)
+            highHum = Math.max(...humA)
+
+            //Min tempature
+            tempMin = Math.min(...tempM)
+
+            console.log(time);
+
+            //if else statments for using custom incon for weather cards
+            function skycCndition(sky){
+                if(sky === 'clear sky'){
+                    sky = '<img class="" src="img/Weather/sun.png" alt="Sunny">';
+                } else if(sky === 'few clouds' || sky.includes('clouds')) {
+                    sky = '<img class="" src="img/Weather/cloudy.png" alt="few clouds">';
+                }
+                else if(sky === 'scattered clouds') {
+                    sky = '<img class="" src="img/Weather/cloud.png" alt="scattered clouds">';
+                }
+                else if(sky === 'broken clouds') {
+                    sky = '<img class="" src="img/Weather/cloud.png" alt="broken clouds">';
+                }
+                else if(sky === 'shower rain' || sky.includes('light rain')) {
+                    sky = '<img class="" src="img/Weather/rain-1.png" alt="shower rain">';
+                }
+                else if(sky === 'rain' || sky.includes('rain')) {
+                    sky = '<img class="" src="img/Weather/rain.png" alt="rain">';
+                }
+                else if(sky === 'thunderstorm' || sky.includes('thunderstorm') ) {
+                    sky = '<img class="" src="img/Weather/storm.png" alt="thunderstorm">';
+                }
+                else if(sky === 'snow' || sky.includes('snow') || sky.includes('sleet') ) {
+                    sky = '<img class="" src="img/Weather/snowflake.png" alt="snow">';
+                }
+                else if(sky === 'mist') {
+                    sky = '<img class="" src="img/Weather/wind.png" alt="mist">';
+                } else {
+                    sky = '<img class="" src="img/Weather/mist.png" alt="wind or smoke">';
+                }
+                return sky;
+            }
+
+            $('#append').append(
+                `<h4 class=" text-left">${namedDayFromDay(time)}</h4>
+                 <div class="row">
+                    <div class="col-7">
+                        <section class="row">
+                            <div class="d-flex justify-content-end align-items-center col-6">
+                                <h2>${highestTemp}&deg</h2>
+                            </div>
+                            <div class="d-flex justify-content-start align-items-center ps-0 col-6">
+                               ${skycCndition(conSky)}
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-5">
+                        <section class="row">
+                            <div class="d-flex align-items-center col-6">
+                               <h2>${tempMin}&deg</h2>
+                            </div>
+                            <div class=" d-flex justify-content-start align-items-center  col-6">
+                                <img class="" src="img/Weather/moon.png" alt="Night">
+                            </div>
+
+                        </section>
+                    </div>
+                </div>
+
+            <!-- this will be wind information-->
+            <section class="windInformation mb-2">
+                <p class="lead"><span class="cap">${conSky}.</span> High near ${highestTemp}&deg. Winds ${windCardinalDirection(windDegree)} at ${highWind} mph.</p>
+            </section>
+
+            <!--                        extra information-->
+            <section class="otherInformation">
+                <div class="card mb-0 ">
+                    <div class="card-body">
+                        <section class="row">
+                            <div class="d-flex justify-content-end col-3">
+                            <img class="" src="img/temperature.png" alt="Tempature reading">
+                            </div>
+                            <div class="ps-0  d-flex justify-content-start align-items-center col-3 row row-col">
+                               <p class="pt-2  mb-0">Feels Like:</p>
+                               <br>
+                               <p>${highestFeels}&deg</p>
+                            </div>
+                            <div class="d-flex justify-content-end  col-3">
+                            <img class="pe-0" src="img/2682807_drop_high_humidity_percentage_precipitation_icon.png" alt="Humidity water drop">
+                            </div>
+                            <div class="d-flex justify-content-start align-items-center col-3 row row-col">
+                               <p class="pt-2 m-0">Humidity:</p>
+                               <p>${highHum}%</p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <hr>
+
+            `)}}
+
+
+//javier's code
 const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 function namedDayFromDay(timeStamp){
@@ -62,6 +203,9 @@ function windCardinalDirection(degrees){
 }
 
 
+//Where the APIs begin. Note: all operations are done in one API
+
+//forcast API
 $.get("http://api.openweathermap.org/data/2.5/forecast", {
     APPID: OPEN_WEATHER_APPID,
     lat:    29.423017,
@@ -73,187 +217,29 @@ $.get("http://api.openweathermap.org/data/2.5/forecast", {
     map.setCenter([-98.48527,29.423017]);
 
 
-
+    //weather API
     $.get("http://api.openweathermap.org/data/2.5/weather", {
         APPID: OPEN_WEATHER_APPID,
         lat:    29.423017,
         lon:   -98.48527,
         units: "imperial"
-    }).done(function(data) {
-        //     $('.currentWeather').append(`<div><h2> ${namedDayFromDay(datafor.list[0].dt-20000)} </h2>  <p>Tempature: ${datafor.list[0].main.temp}&deg</p>  <p> ${datafor.list[0].weather[0].description}</p> <p>${datafor.list[0].wind.speed} mph ${windCardinalDirection(datafor.list[0].wind.deg)} </p>
-        //
-        // <p>Huminidty: ${datafor.list[0].main.humidity}% </p></div>`)
-
-        //tempature
-        let highestTemp = '';
-        let tempA = [];
-
-        let tempMin = '';
-        let tempM = [];
-
-        let highestFeels = '';
-        let feelT = [];
+    }).done(printWeather(datafor));
 
 
-        //wind speed
-        highWind = '';
-        let windA=[];
-        let windDegree = '';
+    userMarker.on('dragend', onDragEnd);
 
-        //huminitdy
-        highHum = ''
-        let humA = [];
+    //this is how I get the new coordinates
+    function onDragEnd() {
+        const lngLat = userMarker.getLngLat();
+        console.log(lngLat);
+        let coords = [
+            `${lngLat.lng}`,
+            `${lngLat.lat}`
+        ]
+        updateWeather(coords)
 
-        //sky conditions
-        let skyA = [];
-        let conSky = '';
-
-        //Date
-        let time = '';
-
-
-
-
-        // total amount of stuff.
-        for (let i = 0; i < 5; i++) {
-
-            for(let j = i*8; j <(i+1)*8; j++){
-                tempA.push(datafor.list[j].main.temp);
-                tempM.push(datafor.list[j].main.temp_min)
-                feelT.push(datafor.list[j].main.feels_like)
-                windA.push(datafor.list[j].wind.speed);
-                humA.push(datafor.list[j].main.humidity);
-                if(j % 8 === 0 ){
-                    conSky = datafor.list[j].weather[0].description;
-                    time = ((datafor.list[j].dt)-4000);
-                    windDegree = datafor.list[j].wind.deg;
-
-                }
-
-            }
-            //the Max tempature, wind-speed
-            highestFeels = Math.max(...feelT)
-            highestTemp = Math.max(...tempA)
-            highWind = Math.max(...windA)
-            highHum = Math.max(...humA)
-
-            //Min tempature
-            tempMin = Math.min(...tempM)
-
-            console.log(time);
-
-
-            function skycCndition(sky){
-                if(sky === 'clear sky'){
-                    sky = '<img class="" src="img/Weather/sun.png" alt="Sunny">';
-                } else if(sky === 'few clouds') {
-                    sky = '<img class="" src="img/Weather/cloudy.png" alt="few clouds">';
-                }
-                else if(sky === 'scattered clouds') {
-                    sky = '<img class="" src="img/Weather/cloud.png" alt="scattered clouds">';
-                }
-                else if(sky === 'broken clouds') {
-                    sky = '<img class="" src="img/Weather/cloud.png" alt="broken clouds">';
-                }
-                else if(sky === 'shower rain') {
-                    sky = '<img class="" src="img/Weather/rain(1).png" alt="shower rain">';
-                }
-                else if(sky === 'rain') {
-                    sky = '<img class="" src="img/Weather/rain.png" alt="rain">';
-                }
-                else if(sky === 'thunderstorm') {
-                    sky = '<img class="" src="img/Weather/storm.png" alt="thunderstorm">';
-                }
-                else if(sky === 'snow') {
-                    sky = '<img class="" src="img/Weather/snowflake.png" alt="snow">';
-                }
-                else if(sky === 'mist') {
-                    sky = '<img class="" src="img/Weather/wind.png" alt="mist">';
-                } else {
-                    sky = '<img class="" src="img/Weather/sun.png" alt="Sunny">';
-                }
-                return sky;
-            }
-
-            $('#append').append(
-                `<h4 class=" text-left">${namedDayFromDay(time)}</h4>
-                 <div class="row">
-                    <div class="col-7">
-                        <section class="row">
-                            <div class="d-flex justify-content-end align-items-center col-6">
-                                <h2>${highestTemp}&deg</h2>
-                            </div>
-                            <div class="d-flex justify-content-start align-items-center ps-0 col-6">
-                               ${skycCndition(conSky)}
-                            </div>
-                        </section>
-                    </div>
-                    <div class="col-5">
-                        <section class="row">
-                            <div class="d-flex align-items-center col-6">
-                               <h2>${tempMin}&deg</h2>
-                            </div>
-                            <div class=" d-flex justify-content-start align-items-center  col-6">
-                                <img class="" src="img/Weather/moon.png" alt="Night">
-                            </div>
-
-                        </section>
-                    </div>
-                </div>
-
-            <!-- this will be wind information-->
-            <section class="windInformation mb-2">
-                <p class="lead"><span class="cap">${conSky}.</span> High near ${highestTemp}&deg. Winds ${windCardinalDirection(windDegree)} at ${highWind} mph.</p>
-            </section>
-
-            <!--                        extra information-->
-            <section class="otherInformation">
-                <div class="card mb-0 ">
-                    <div class="card-body">
-                        <section class="row">
-                            <div class="d-flex justify-content-end col-3">
-                            <img class="" src="img/temperature.png" alt="Tempature reading">
-                            </div>
-                            <div class="ps-0  d-flex justify-content-start align-items-center col-3 row row-col">
-                               <p class="pt-2  mb-0">Feels Like:</p> 
-                               <br>
-                               <p>${highestFeels}&deg</p>
-                            </div>
-                            <div class="d-flex justify-content-end  col-3">
-                            <img class="pe-0" src="img/2682807_drop_high_humidity_percentage_precipitation_icon.png" alt="Humidity water drop">
-                            </div>
-                            <div class="d-flex justify-content-start align-items-center col-3 row row-col">
-                               <p class="pt-2 m-0">Humidity:</p> 
-                               <p>${highHum}%</p>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-            </section>
-            <hr>
-                
-            `)
-
-
-
-
-
-
-
-            // $('.nextdays').append(`<div class="day${i}">
-            // <h2> ${namedDayFromDay(time)} </h2>  <p>HighTemp: ${highestTemp}&deg  LowestTemp: ${tempMin}&deg FeelsLike: ${highestFeels}&deg </p>  <p> ${conSky}</p> <p> Wind-Speed: ${highWind} mph ${windCardinalDirection(windDegree)} </p>
-            // <p>Huminidty: ${highHum}% </p>
-            // </div>`)
-
-        }
-
-
-        console.log(data);
-
-
-// userMarker.on('dragend', onDragEnd);
-
-
+    }
+        //get and accepts new cordinates then send it to update the weather cards
         function updateWeather(coordinates){
             $.get("http://api.openweathermap.org/data/2.5/forecast", {
                 APPID: OPEN_WEATHER_APPID,
@@ -268,160 +254,7 @@ $.get("http://api.openweathermap.org/data/2.5/forecast", {
             })
         }
 
-        function printWeather(datafor) {
-            $('#append').empty();
-
-            //tempature
-            let highestTemp = '';
-            let tempA = [];
-
-            let tempMin = '';
-            let tempM = [];
-
-            let highestFeels = '';
-            let feelT = [];
-
-
-            //wind speed
-            highWind = '';
-            let windA=[];
-            let windDegree = '';
-
-            //huminitdy
-            highHum = ''
-            let humA = [];
-
-            //sky conditions
-            let skyA = [];
-            let conSky = '';
-
-            //Date
-            let time = '';
-
-
-
-
-            // total amount of stuff.
-            for (let i = 0; i < 5; i++) {
-
-                for(let j = i*8; j <(i+1)*8; j++){
-                    tempA.push(datafor.list[j].main.temp);
-                    tempM.push(datafor.list[j].main.temp_min)
-                    feelT.push(datafor.list[j].main.feels_like)
-                    windA.push(datafor.list[j].wind.speed);
-                    humA.push(datafor.list[j].main.humidity);
-                    if(j % 8 === 0 ){
-                        conSky = datafor.list[j].weather[0].description;
-                        time = ((datafor.list[j].dt)-4000);
-                        windDegree = datafor.list[j].wind.deg;
-
-                    }
-
-                }
-                //the Max tempature, wind-speed
-                highestFeels = Math.max(...feelT)
-                highestTemp = Math.max(...tempA)
-                highWind = Math.max(...windA)
-                highHum = Math.max(...humA)
-
-                //Min tempature
-                tempMin = Math.min(...tempM)
-
-                console.log(time);
-
-
-                $('#append').append(
-                    `<h5 classname=" text-left">${namedDayFromDay(time)}</h5>
-                 <div class="row">
-                    <div class="col">
-                        <section class="row">
-                            <div class="col-6">
-                                <h2>${highestTemp}&deg</h2>
-                            </div>
-                            <div class="col-6">
-                                sfadfasdfasfdsafdsfasdfsdfasd
-                            </div>
-                        </section>
-                    </div>
-                    <div class="col">
-                        <section class="row">
-                            <div class="col-6">
-                               <h2>${tempMin}&deg</h2>
-                            </div>
-                            <div class="col-6">
-                                
-                            </div>
-
-                        </section>
-                    </div>
-                </div>
-
-            <!-- this will be wind information-->
-            <section class="windInformation mb-2">
-                <p class="lead"><span class="cap">${conSky}.</span> High near ${highestTemp}&deg. Winds ${windCardinalDirection(windDegree)} at ${highWind} mph.</p>
-            </section>
-
-            <!--                        extra information-->
-            <section class="otherInformation">
-                <div class="card mb-0">
-                    <div class="card-body">
-                        <section class="row">
-                            <div class="col-2">icon</div>
-                            <div class="col-4">
-                               <p class=" m-0">FeelsLike:</p> 
-                               <p>${highestFeels}&deg</p>
-                            </div>
-                            <div class="col-2">icon</div>
-                            <div class="col-4">
-                               <p class=" m-0">Humidity:</p> 
-                               <p>${highHum}%</p>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-            </section>
-            <hr>
-                
-            `)
-
-
-
-
-
-
-
-                // $('.nextdays').append(`<div class="day${i}">
-                // <h2> ${namedDayFromDay(time)} </h2>  <p>HighTemp: ${highestTemp}&deg  LowestTemp: ${tempMin}&deg FeelsLike: ${highestFeels}&deg </p>  <p> ${conSky}</p> <p> Wind-Speed: ${highWind} mph ${windCardinalDirection(windDegree)} </p>
-                // <p>Huminidty: ${highHum}% </p>
-                // </div>`)
-
-            }
-
-
-        }
-// const marker = new mapboxgl.Marker({
-//     draggable: true
-// })
-//     .setLngLat([-99.48962, 29.42692])
-//     .addTo(map);
-
-        function onDragEnd() {
-            const lngLat = userMarker.getLngLat();
-            console.log(lngLat);
-            // coordinates.style.display = 'block';
-            // coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
-            // created coords so we can call it on updateWeather
-            let coords = [
-                `${lngLat.lng}`,
-                `${lngLat.lat}`
-            ]
-            updateWeather(coords)
-
-        }
-        userMarker.on('dragend', onDragEnd)
-
-
-
+        //search bar and how it operates
         $('#searchButton').on('click', function(e){
             e.preventDefault();
             userMarker.remove();
@@ -436,7 +269,5 @@ $.get("http://api.openweathermap.org/data/2.5/forecast", {
 
             });
         })
-
-    });
 });
 
