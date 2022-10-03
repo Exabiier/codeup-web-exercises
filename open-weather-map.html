@@ -186,6 +186,28 @@
         zoom: 11, // starting zoom
         projection: 'globe' // display the map as a 3D globe
     });
+    //
+    // map.on('load', function () {
+    //     map.addSource('aerisweather-layers', {
+    //         type: 'raster',
+    //         tiles: [
+    //             `https://maps1.aerisapi.com/${WEATHER_API}/flat,fradar/{z}/{x}/{y}/current.png`,
+    //             `https://maps2.aerisapi.com/${WEATHER_API}/flat,fradar/{z}/{x}/{y}/current.png`,
+    //             `https://maps3.aerisapi.com/${WEATHER_API}/flat,fradar/{z}/{x}/{y}/current.png`,
+    //             `https://maps4.aerisapi.com/${WEATHER_API}/flat,fradar/{z}/{x}/{y}/current.png`
+    //         ],
+    //         tileSize: 256,
+    //         attribution: '<a href="https://www.aerisweather.com/">AerisWeather</a>'
+    //     });
+    //     map.addLayer({
+    //         id: 'aerisweather-layers',
+    //         type: 'raster',
+    //         source: 'aerisweather-layers',
+    //         minzoom: 0,
+    //         maxzoom: 22
+    //     });
+    //     map.setPaintProperty('aerisweather-layers', 'raster-opacity', .5);
+    // })
 
 </script>
 

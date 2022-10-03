@@ -57,44 +57,44 @@
 // let myFunction = convertToObject;
 // console.log(myFunction("Intro to React"));
 
-var neighborhood1 ={
-    neighborhood: "Lovely Estates",
-    medianHomePrice: 280000,
-    pool: true,
-    tennis: false,
-    crimeRate: "low",
-    schools: [
-        {name: "ES1", rating: 8},
-        {name: "MS2", rating: 6},
-        {name: "HS3", rating: 8}
-    ]
-}
-
-var neighborhood2 ={
-    neighborhood: "Luminous Estates",
-    medianHomePrice: 270000,
-    pool: true,
-    tennis: false,
-    crimeRate: "low",
-    schools: [
-        {name: "ES1", rating: 8},
-        {name: "MS2", rating: 8},
-        {name: "HS3", rating: 8}
-    ]
-}
-
-var neighborhood3 ={
-    neighborhood: "Ginormous Ego Estates",
-    medianHomePrice: 350000,
-    pool: true,
-    tennis: true,
-    crimeRate: "low",
-    schools: [
-        {name: "ES1", rating: 9},
-        {name: "MS2", rating: 9},
-        {name: "HS3", rating: 9}
-    ]
-}
+// var neighborhood1 ={
+//     neighborhood: "Lovely Estates",
+//     medianHomePrice: 280000,
+//     pool: true,
+//     tennis: false,
+//     crimeRate: "low",
+//     schools: [
+//         {name: "ES1", rating: 8},
+//         {name: "MS2", rating: 6},
+//         {name: "HS3", rating: 8}
+//     ]
+// }
+//
+// var neighborhood2 ={
+//     neighborhood: "Luminous Estates",
+//     medianHomePrice: 270000,
+//     pool: true,
+//     tennis: false,
+//     crimeRate: "low",
+//     schools: [
+//         {name: "ES1", rating: 8},
+//         {name: "MS2", rating: 8},
+//         {name: "HS3", rating: 8}
+//     ]
+// }
+//
+// var neighborhood3 ={
+//     neighborhood: "Ginormous Ego Estates",
+//     medianHomePrice: 350000,
+//     pool: true,
+//     tennis: true,
+//     crimeRate: "low",
+//     schools: [
+//         {name: "ES1", rating: 9},
+//         {name: "MS2", rating: 9},
+//         {name: "HS3", rating: 9}
+//     ]
+// }
 
     // Write a function that takes a neighborhood object and determines if it is desirable. A neighborhood is desirable if the median home price is less than 300000, crime rates are low, and the total rating of schools is at least 24.
 
@@ -149,19 +149,19 @@ var neighborhood3 ={
 // }
 
 
-const attendence = {
-    miami:32789,
-    buffalo: 45678,
-    partland: 24567
-}
+// const attendence = {
+//     miami:32789,
+//     buffalo: 45678,
+//     partland: 24567
+// }
 
 //when you use and object you can use Object.value to get the value of a key value pair, and it creates a new array
 
 
-function Object(){
-    let total = 0;
-    for(const prop in attendence){}
-}
+// function Object(){
+//     let total = 0;
+//     for(const prop in attendence){}
+// }
 
 /**
  * Convert Address to Object
@@ -174,14 +174,14 @@ function Object(){
  **/
 
 
-let address = '8646 Sunny Oaks'
-function convertAddressToObject(address){
-    return {
-        streetNumber: address.substring(0,address.indexOf('')),
-        streetName: address.substring(address.indexOf('')+1),
-
-    }
-}
+// let address = '8646 Sunny Oaks'
+// function convertAddressToObject(address){
+//     return {
+//         streetNumber: address.substring(0,address.indexOf('')),
+//         streetName: address.substring(address.indexOf('')+1),
+//
+//     }
+// }
 
 //with substring (this peramenter start at the string, and this one goes to the end point
 // the substring stops one forward
@@ -214,6 +214,15 @@ function convertAddressToObject(address){
 
 //for the reduce method make sure you use .pets so you can get the value.
 //when going through an object you must use the peramentar zero  for the last
+
+$("button").on('click',()=>{
+    $('h1').text('Hello')
+})
+
+
+
+
+
 
 
 
